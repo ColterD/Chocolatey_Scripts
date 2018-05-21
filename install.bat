@@ -7,7 +7,6 @@
 
 @rem ----[ This code block detects if the script is being running with admin PRIVILEGES If it isn't it pauses and then quits]-------
 echo OFF
-mode con: cols=65  lines=24
 cls
 
 NET SESSION >nul 2>&1
@@ -43,12 +42,10 @@ echo [93m Now Installing Chocolatey...[0m
 echo.
 echo [93m Please wait...[0m
 echo.
+cls
 timeout /t 1 /nobreak > NUL
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-CALL :CHECK_FAIL
-:: Refresh environment
-refreshenv
-CALL :CHECK_FAIL
+cls
 echo [93m Initial Installation Finished![0m
 timeout /t 1 /nobreak > NUL
 echo.
@@ -56,8 +53,7 @@ echo [93m Now Getting Windows Installation Script from Github...[0m
 timeout /t 1 /nobreak > NUL
 CALL :CHECK_FAIL
 
-:: Get Install Script from Git
-iex ((new-object net.webClient).DownloadString('https://raw.githubusercontent.com/ColterD/Chocolatey_Scripts/master/apps.bat'))
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/ColterD/Chocolatey_Scripts/master/apps.bat'))"
 CALL :CHECK_FAIL
 
 GOTO :EOF

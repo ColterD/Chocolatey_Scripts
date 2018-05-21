@@ -5,7 +5,7 @@
 :: --confirm is a headless install where it doesn't ask you to confirm installation or not
 ::
 :: If you need to customize this, pull the raw file, edit it, and run as a seperate PowerShell command instead of the automated install.
-:: If there is software you don't want or do want, simply uncomment or comment lines as needed.
+
 echo off
 echo [93m Now Windows Update will check for updates, the script will continue in the meanwhile.[0m
 C:\Windows\system32
@@ -112,9 +112,6 @@ choco install --confirm reddit-wallpaper-changer
 choco install --confirm dotnet4.7
 choco install --confirm dotnet3.5
 choco install --confirm authy-desktop
-
-:: Refresh environment
-refreshenv
 
 echo [93m Installation completely finished.  Windows will now restart in 30 seconds.[0m
 shutdown.exe /s /t 30
