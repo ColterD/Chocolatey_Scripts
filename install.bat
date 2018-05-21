@@ -37,13 +37,13 @@ if not "%1" == "max" start /MAX cmd /c %0 max & exit/b
 :: This script will install both the Chocolately .exe file and add the
 :: choco command to your PATH variable﻿﻿
 
-@echo "Now Installing Chocolatey..."
+@echo Now Installing Chocolatey...
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 :: Refresh environment
 refreshenv
-@echo "Initial Installation Finished"
+@echo Initial Installation Finished
 @echo.
-@echo "Now Getting Windows Installation Script from Github..."
+@echo Now Getting Windows Installation Script from Github...
 
 :: Get Install Script from Git
 iex ((new-object net.webClient).DownloadString('https://raw.githubusercontent.com/ColterD/Chocolatey_Scripts/master/apps.bat'))

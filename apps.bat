@@ -27,6 +27,7 @@ choco install --confirm adobeair
 choco install --confirm flashplayerplugin
 choco install --confirm flashplayeractivex
 choco install --confirm adobeshockwaveplayer
+choco install --confirm disableuac
 
 :: Common Software | Ninite Alternative
 choco install --confirm googlechrome
