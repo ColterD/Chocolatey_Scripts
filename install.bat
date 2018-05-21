@@ -64,7 +64,6 @@ GOTO :EOF
 
 :: If Script Fails, Check
 :CHECK_FAIL
-[AT]echo off
 if NOT ["%errorlevel%"]==["0"] (
     pause
     exit /b %errorlevel%
