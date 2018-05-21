@@ -150,7 +150,7 @@ shutdown.exe /s /t 30
 :: Audio/Visual
 :: Spotify (Unmoderated Version) | https://chocolatey.org/packages/spotify/1.0.75.483
 :: OBS Studio | https://chocolatey.org/packages/obs-studio
-:: Audacity + Audacity LAME | https://chocolatey.org/packages/audacity & https://chocolatey.org/packages/audacity-lame
+:: Audacity + Audacity LAME | https://chocolatey.org/packages/audacity https://chocolatey.org/packages/audacity-lame
 :: K-Lite Codec Pack Mega 14.1.0 | https://chocolatey.org/packages/k-litecodecpackmega
 ::
 :: Utility Software
