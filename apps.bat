@@ -121,7 +121,7 @@ shutdown.exe /s /t 30
 :: Chocolatey Core Extensions | https://chocolatey.org/packages/chocolatey-core.extension
 ::
 :: AntiMalware/Spyware/Virus
-:: O&O Shut Up 10 | Anti-Microsoft Spyware and Telemetry | https://chocolatey.org/packages/shutup10
+:: Shut Up 10 | Anti-Microsoft Spyware and Telemetry | https://chocolatey.org/packages/shutup10
 :: Bleachbit | Like With A Cloth? https://chocolatey.org/packages/bleachbit
 :: Malwarebytes | https://chocolatey.org/packages/malwarebytes
 :: ADWcleaner | https://chocolatey.org/packages/adwcleaner
