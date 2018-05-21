@@ -7,8 +7,8 @@
 :: If you need to customize this, pull the raw file, edit it, and run as a seperate PowerShell command instead of the automated install.
 :: If there is software you don't want or do want, simply uncomment or comment lines as needed.
 @echo off
-@echo "Now Installing Chocolatey Apps..."
-timeout /t 1
+@echo Now Installing Chocolatey Apps...
+timeout /t 1 /nobreak > NUL
 
 :: Extensions
 choco install --confirm chocolatey-core.extension
@@ -111,8 +111,8 @@ choco install --confirm authy-desktop
 :: Refresh environment
 refreshenv
 
-@echo "Installation completely finished."
-timeout /t 3
+@echo Installation completely finished.
+timeout /t 3 /nobreak > NUL
 
 :::::::: Links To Individual Installer Pages
 :: Extensions

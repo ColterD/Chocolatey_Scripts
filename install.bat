@@ -13,7 +13,7 @@ cls
 NET SESSION >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
     ECHO Administrator PRIVILEGES Detected!
-    timeout /t 1 
+    timeout /t 1 /nobreak > NUL
 ) ELSE (
    echo.
    echo       [91m  ######## ########  ########   #######  ########  [0m
@@ -40,15 +40,29 @@ if not "%1" == "max" start /MAX cmd /c %0 max & exit/b
 
 echo.
 @echo Now Installing Chocolatey...
-timeout /t 1
+timeout /t 1 /nobreak > NUL
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+CALL :CHECK_FAIL
 :: Refresh environment
 refreshenv
+CALL :CHECK_FAIL
 @echo Initial Installation Finished
-timeout /t 1
+timeout /t 1 /nobreak > NUL
 @echo.
 @echo Now Getting Windows Installation Script from Github...
-timeout /t 1
+timeout /t 1 /nobreak > NUL
+CALL :CHECK_FAIL
 
 :: Get Install Script from Git
 iex ((new-object net.webClient).DownloadString('https://raw.githubusercontent.com/ColterD/Chocolatey_Scripts/master/apps.bat'))
+CALL :CHECK_FAIL
+
+GOTO :EOF
+
+:: If Script Fails, Check
+:CHECK_FAIL
+[AT]echo off
+if NOT ["%errorlevel%"]==["0"] (
+    pause
+    exit /b %errorlevel%
+)
