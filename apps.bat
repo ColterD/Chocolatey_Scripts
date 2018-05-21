@@ -8,8 +8,8 @@
 
 echo off
 echo [93m Now Windows Update will check for updates, the script will continue in the meanwhile.[0m
-C:\Windows\system32
-wuauclt.exe /detectnow /updatenow
+wuauclt /detectnow
+wuauclt /updatenow
 timeout /t 3 /nobreak > NUL
 
 echo [93m Now Installing Chocolatey Apps...[0m
