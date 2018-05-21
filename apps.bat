@@ -101,7 +101,7 @@ REM choco install --confirm steam
 REM choco install --confirm origin
 choco install --confirm discord.install
 REM choco install --confirm twitch
-REM Experimental Battle.NET Install https://chocolatey.org/packages/battle.net (check top comments)
+REM Experimental Battle.NET Install https://chocolatey.org/packages/battle.net
 REM choco install --confirm battle.net --checksum c7f48cc0f1a3bd7cb5f41b96b356ba69
 
 REM Optional Addons
