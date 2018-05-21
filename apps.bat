@@ -8,6 +8,7 @@
 :: If there is software you don't want or do want, simply uncomment or comment lines as needed.
 @echo off
 @echo "Now Installing Chocolatey Apps..."
+timeout /t 1
 
 :: Extensions
 choco install --confirm chocolatey-core.extension
@@ -111,6 +112,7 @@ choco install --confirm authy-desktop
 refreshenv
 
 @echo "Installation completely finished."
+timeout /t 3
 
 :::::::: Links To Individual Installer Pages
 :: Extensions

@@ -12,7 +12,8 @@ cls
 
 NET SESSION >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
-    ECHO Administrator PRIVILEGES Detected! 
+    ECHO Administrator PRIVILEGES Detected!
+    timeout /t 1 
 ) ELSE (
    echo.
    echo       [91m  ######## ########  ########   #######  ########  [0m
@@ -37,13 +38,17 @@ if not "%1" == "max" start /MAX cmd /c %0 max & exit/b
 :: This script will install both the Chocolately .exe file and add the
 :: choco command to your PATH variable﻿﻿
 
+echo.
 @echo Now Installing Chocolatey...
+timeout /t 1
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 :: Refresh environment
 refreshenv
 @echo Initial Installation Finished
+timeout /t 1
 @echo.
 @echo Now Getting Windows Installation Script from Github...
+timeout /t 1
 
 :: Get Install Script from Git
 iex ((new-object net.webClient).DownloadString('https://raw.githubusercontent.com/ColterD/Chocolatey_Scripts/master/apps.bat'))
