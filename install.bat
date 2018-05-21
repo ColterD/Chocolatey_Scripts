@@ -36,7 +36,7 @@ IF %ERRORLEVEL% EQU 0 (
 if not "%1" == "max" start /MAX cmd /c %0 max & exit/b
 
 :: This script will install both the Chocolately .exe file and add the
-:: choco command to your PATH variable﻿﻿
+:: choco command to your PATH variable??
 
 echo.
 @echo Now Installing Chocolatey...
