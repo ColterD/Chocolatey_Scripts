@@ -7,12 +7,12 @@
 :: If you need to customize this, pull the raw file, edit it, and run as a seperate PowerShell command instead of the automated install.
 :: If there is software you don't want or do want, simply uncomment or comment lines as needed.
 @echo off
-@echo Now Windows Update will check for updates, the script will continue in the meanwhile.[0m
+@echo [93m Now Windows Update will check for updates, the script will continue in the meanwhile.[0m
 C:\Windows\system32
 wuauclt.exe /detectnow /updatenow
 timeout /t 3 /nobreak > NUL
 
-@echo Now Installing Chocolatey Apps...[0m
+@echo [93m Now Installing Chocolatey Apps...[0m
 timeout /t 1 /nobreak > NUL
 
 :: Extensions
@@ -116,8 +116,8 @@ choco install --confirm authy-desktop
 :: Refresh environment
 refreshenv
 
-@echo Installation completely finished.
-timeout /t 3 /nobreak > NUL
+@echo [93m Installation completely finished.  Windows will now restart in 30 seconds.[0m
+shutdown.exe /s /t 30
 
 :::::::: Links To Individual Installer Pages
 :: Extensions
