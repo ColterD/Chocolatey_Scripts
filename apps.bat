@@ -7,7 +7,12 @@
 :: If you need to customize this, pull the raw file, edit it, and run as a seperate PowerShell command instead of the automated install.
 :: If there is software you don't want or do want, simply uncomment or comment lines as needed.
 @echo off
-@echo Now Installing Chocolatey Apps...
+@echo Now Windows Update will check for updates, the script will continue in the meanwhile.[0m
+C:\Windows\system32
+wuauclt.exe /detectnow /updatenow
+timeout /t 3 /nobreak > NUL
+
+@echo Now Installing Chocolatey Apps...[0m
 timeout /t 1 /nobreak > NUL
 
 :: Extensions
