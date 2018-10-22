@@ -22,8 +22,8 @@ REM AntiMalware/Spyware/Virus
 choco install --confirm shutup10
 choco install --confirm bleachbit
 choco install --confirm malwarebytes
-choco install --confirm adwcleaner
-choco install --confirm combofix
+REM choco install --confirm adwcleaner
+REM choco install --confirm combofix
 
 REM Basic Windows 10 Stuff
 choco install --confirm javaruntime
@@ -39,12 +39,13 @@ REM Common Software Ninite Alternative
 choco install --confirm googlechrome
 choco install --confirm 7zip.install
 REM choco install --confirm unchecky
-choco install --confirm pycharm-community
-choco install --confirm evernote
+REMchoco install --confirm pycharm-community
+REM choco install --confirm evernote
 choco install --confirm f.lux
 choco install --confirm lastpass
-choco install --confirm sharex
-choco install --confirm teamviewer
+REM choco install --confirm sharex
+REM choco install --confirm teamviewer
+choco install --confirm anydesk
 choco install --confirm classic-shell
 choco install --confirm sumatrapdf.install -ia "/opt pdfpreviewer"
 choco install --confirm qbittorrent
@@ -87,7 +88,7 @@ REM choco install --confirm rufus
 REM choco install --confirm imgburn
 
 REM Audio/Visual
-choco install --confirm spotify --version 1.0.75.483
+choco install --confirm spotify --version 1.0.91.183
 REM choco install --confirm obs-studio
 REM choco install --confirm audacity audacity-lame
 choco install --confirm k-litecodecpackmega
@@ -97,10 +98,10 @@ REM choco install --confirm itunes
 REM choco install --confirm foobar2000
 
 REM Gaming
-REM choco install --confirm steam
-REM choco install --confirm origin
+choco install --confirm steam
+choco install --confirm origin
 choco install --confirm discord.install
-REM choco install --confirm twitch
+choco install --confirm twitch
 REM Experimental Battle.NET Install https://chocolatey.org/packages/battle.net
 REM choco install --confirm battle.net --checksum c7f48cc0f1a3bd7cb5f41b96b356ba69
 
@@ -116,4 +117,4 @@ choco install --confirm dotnet3.5
 choco install --confirm authy-desktop
 
 echo [93m Installation completely finished.  Windows will now restart in 30 seconds.[0m
-shutdown.exe /s /t 30
+shutdown.exe /r /t 30
