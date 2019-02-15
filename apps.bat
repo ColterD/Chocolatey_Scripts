@@ -28,9 +28,9 @@ choco install -yr choco-upgrade-all-at --params "'/DAILY:yes /TIME:02:00 /ABORTT
 choco install -yr mbca
 
 :: AntiMalware/Spyware/Virus
-choco install -yr shutup10
+:: choco install -yr shutup10
 choco install -yr bleachbit
-choco install -yr malwarebytes
+:: choco install -yr malwarebytes
 choco install -yr adwcleaner
 choco install -yr combofix
 
@@ -53,19 +53,19 @@ choco install -yr disableuac
 :: Common Software Ninite Alternative
 choco install -yr googlechrome
 choco install -yr 7zip.install
-choco install -yr unchecky
+:: choco install -yr unchecky
 choco install -yr f.lux
 choco install -yr lastpass
 choco install -yr teamviewer
-choco install -yr anydesk
+:: choco install -yr anydesk
 choco install -yr classic-shell
 choco install -yr sumatrapdf.install -ia "/opt pdfpreviewer"
 choco install -yr qbittorrent
 choco install -yr nodejs.install
 choco install -yr git
-choco install -yr wiztree
-choco install -yr reddit-wallpaper-changer
-choco install -yr authy-desktop
+:: choco install -yr wiztree
+:: choco install -yr reddit-wallpaper-changer
+:: choco install -yr authy-desktop
 
 :: Gaming
 choco install -yr steam
