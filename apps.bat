@@ -21,7 +21,7 @@ timeout /t 1 /nobreak > NUL
 :: Required!
 choco install -yr chocolatey-core.extension
 
-:: Create Windows Scheduled Task to Run Program Updates at /TIME (2 AM)
+:: Create Windows Scheduled Task to Run Program Updates at /TIME 2 AM
 choco install -yr choco-upgrade-all-at --params "'/DAILY:yes /TIME:02:00 /ABORTTIME:08:00'"
 
 :: Microsoft Baseline Configuration Analyzer
