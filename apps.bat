@@ -115,5 +115,9 @@ choco install -fy dotnet3.5
 :: choco install -yr itunes
 :: choco install -yr foobar2000
 
+echo [93m Re-enabling Windows Defender...[0m
+choco remove -yr disabledefender-winconfig
+
 echo [93m Installation completely finished.  Windows will now restart in 15 seconds.[0m
 shutdown.exe /r /t 15
+pause

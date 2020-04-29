@@ -36,26 +36,30 @@ if not "%1" == "max" start /MAX cmd /c %0 max & exit/b
 
 :: This script will install both the Chocolately .exe file and add the
 :: choco command to your PATH variable??
-
 echo.
 echo [93m Now Installing Chocolatey...[0m
 echo.
 echo [93m Please wait...[0m
 echo.
-cls
 timeout /t 1 /nobreak > NUL
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 cls
 echo [93m Initial Installation Finished![0m
 timeout /t 1 /nobreak > NUL
 echo.
+echo [93m Temporarily Disabling Windows Defender...[0m
+timeout /t 1 /nobreak > NUL
+echo.
+choco install -yr disabledefender-winconfig
+
+echo.
+echo ------------------------------------
 echo [93m Now Getting Windows Installation Script from Github...[0m
 timeout /t 1 /nobreak > NUL
 CALL :CHECK_FAIL
-
-@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/ColterD/Chocolatey_Scripts/master/apps.bat'))"
+echo.
+powershell.exe -NoProfile -ExecutionPolicy Bypass -command "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/ColterD/Chocolatey_Scripts/master/apps.bat'))"
 CALL :CHECK_FAIL
-
 GOTO :EOF
 
 :: If Script Fails, Check
