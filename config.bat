@@ -40,7 +40,6 @@ choco install -yr spotify
 choco install -yr adobeair
 choco install -yr flashplayeractivex
 choco install -yr flashplayerplugin
-choco install -yr javaruntime
 choco install -yr jre8
 choco install -yr silverlight
 
