@@ -88,7 +88,7 @@ timeout /t 4 /nobreak > NUL
 CALL :CHECK_FAIL
 echo.
 cd /d %~dp0
-apps.bat
+config.bat
 CALL :CHECK_FAIL
 GOTO :EOF
 
