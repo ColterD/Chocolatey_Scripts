@@ -1,9 +1,4 @@
 :: Simple Home-Based Environment Setup Script Using Chocolatey | https://chocolatey.org
-:: Description of what the commands do:
-:: choco is the backend command, it's like git or svn checkout
-:: install tells it what to do
-:: --confirm is a headless install where it doesn't ask you to confirm installation or not
-:: If you need to customize programs, pull the raw file, edit it, and run as a seperate PowerShell command instead of this automated install.
 
 @rem ----[ This code block detects if the script is being running with admin PRIVILEGES If it isn't it pauses and then quits]-------
 echo OFF
@@ -37,6 +32,40 @@ if not "%1" == "max" start /MAX cmd /c %0 max & exit/b
 :: This script will install both the Chocolately .exe file and add the
 :: choco command to your PATH variable??
 echo.
+echo.
+:choice
+echo "/   /                                     /   /"
+echo "| O |                                     | O |"
+echo "|   |- - - - - - - - - - - - - - - - - - -|   |"
+echo "| O |                                     | O |"
+echo "|   |                                     |   |"
+echo "| O |                                     | O |"
+echo "|   |                                     |   |"
+echo "| O |                                     | O |"
+echo "|   |        [91m W A I T ![0m                   |   |"
+echo "| O |                                     | O |"
+echo "|   |   Did you configure the             |   |"
+echo "| O |      config.bat file to have your   | O |"
+echo "|   |             program selection?      |   |"
+echo "| O |                                     | O |"
+echo "|   |                                     |   |"
+echo "| O |                                     | O |"
+echo "|   |                                     |   |"
+echo "| O |- - - - - - - - - - - - - - - - - - -| O |"
+echo "|   |                                     |   |"
+echo.
+set /P c=Please choose Yes (Y) or No (N): 
+if /I "%c%" EQU "Y" goto :continue
+if /I "%c%" EQU "YES" goto :continue
+if /I "%c%" EQU "NO" goto :quit
+if /I "%c%" EQU "QUIT" goto :quit
+if /I "%c%" EQU "N" goto :quit
+goto :choice
+
+:continue
+echo.
+echo. [32mOff we go then!...[0m
+echo.
 echo [93m Now Installing Chocolatey...[0m
 echo.
 echo [93m Please wait...[0m
@@ -53,16 +82,22 @@ echo.
 choco install -yr disabledefender-winconfig
 
 echo.
-echo ------------------------------------
-echo [93m Now Getting Windows Installation Script from Github...[0m
-timeout /t 1 /nobreak > NUL
+cls
+echo [93m Now Running config.bat File...[0m
+timeout /t 4 /nobreak > NUL
 CALL :CHECK_FAIL
 echo.
-powershell.exe -NoProfile -ExecutionPolicy Bypass -command "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/ColterD/Chocolatey_Scripts/master/apps.bat'))"
+cd /d %~dp0
+apps.bat
 CALL :CHECK_FAIL
 GOTO :EOF
 
 :: If Script Fails, Check
+:quit
+echo.
+echo Well, go fix that!
+echo Quitting in 3 seconds...
+timeout /t 4 /nobreak > NUL
 :CHECK_FAIL
 if NOT ["%errorlevel%"]==["0"] (
     pause
