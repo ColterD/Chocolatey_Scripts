@@ -1,6 +1,8 @@
 :: Simple Home-Based Environment Setup Script Using Chocolatey | https://chocolatey.org
+:: Version 1.3 by ColterD
 
-@rem ----[ This code block detects if the script is being running with admin PRIVILEGES If it isn't it pauses and then quits]-------
+::Check for Admin Privs, if not Exit
+@rem
 echo OFF
 cls
 
@@ -27,10 +29,10 @@ IF %ERRORLEVEL% EQU 0 (
    PAUSE
    EXIT /B 1
 )
+:: This maximizes the screen
 if not "%1" == "max" start /MAX cmd /c %0 max & exit/b
 
-:: This script will install both the Chocolately .exe file and add the
-:: choco command to your PATH variable??
+:: Confirm if user has edited the config.bat or it will install the default shipped programs
 echo.
 echo.
 :choice
@@ -71,14 +73,18 @@ echo.
 echo [93m Please wait...[0m
 echo.
 timeout /t 1 /nobreak > NUL
+
+:: This installs Chocolatey Core
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 cls
+
 echo [93m Initial Installation Finished![0m
 timeout /t 1 /nobreak > NUL
 echo.
 echo [93m Temporarily Disabling Windows Defender...[0m
 timeout /t 1 /nobreak > NUL
 echo.
+:: This temporarily disables Windows Defender due to a false positive on config.bat as a Trojan
 choco install -yr disabledefender-winconfig
 
 echo.
@@ -87,12 +93,14 @@ echo [93m Now Running config.bat File...[0m
 timeout /t 4 /nobreak > NUL
 CALL :CHECK_FAIL
 echo.
+
+:: This takes the script back to the current directory (if changed) and runs the config.bat within the same window.
 cd /d %~dp0
 config.bat
 CALL :CHECK_FAIL
 GOTO :EOF
 
-:: If Script Fails, Check
+:: If Script Fails, this tells it to exit
 :quit
 echo.
 echo Well, go fix that!
